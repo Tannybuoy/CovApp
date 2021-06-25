@@ -11,7 +11,7 @@ I have very basic experience in Flutter, so I started off with that. It was my f
 Features:
 - Email login has been provided - Signin/SignUp/SignOut
 - Use your phone camera for uploading the image of your vaccine card 
-- Enter the Country of vacicnation by searching through the list
+- Enter the Country of vaccination by searching through the list
 - Next, enter the pharmacy/community centre/hospital you got vaccinated at
 - Which vaccine did you take? Enter the name.
 - Also enter information about when you got vaccinated.
