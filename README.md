@@ -1,12 +1,11 @@
 ## 💡 Inspiration
-Vaccines are being adminstered in various places, such as Clinics, Pharmacies, Community Health Centers, Nonprofits, but there is no simple way for patients to maintain their vaccine information online in a stable, easily accessible location.
-
+Vaccines are being administered in various places, such as Clinics, Pharmacies, Community Health Centers, Nonprofits, but there is no simple way for patients to maintain their vaccine information online in a stable, easily accessible location. I wanted to build an app that makes travel during COVID easier by ensuring people have all their vaccine information in one place.
 
 ## 🤳 What it does
 CovApp is an app for all individuals to store their Vaccine Card as an image, and enter details about where they got vaccinated, which vaccine they took, and what date they got vaccinated on. The goal is for the user to have all the relevant data in one place which can then act as proof when travelling and as official health records
 
 ## ⚙️ How I built it
-I have very basic experience in Flutter, so I started off with that. It was my first time using Firebase, so I watched a lot of tutorials explaining how to connect Flutter and Firebase. Post that, I installed the dependencies to get started. There were some really cool plugins that I came across which helped make my life easy. 
+I have very basic experience in Flutter, so I started off with by designing the front end. It was my first time using Firebase, so I watched a lot of tutorials explaining how to connect Flutter and Firebase. Post that, I installed the dependencies to get started. There were some really cool plugins that I came across which helped make my life easy. 
 
 Features:
 - Email login has been provided - Signin/SignUp/SignOut
