@@ -27,5 +27,6 @@ A lot, in a very short time.
 
 ## 💭 What's next for CovApp
 - Add Google Maps integration so the person can enter the location of where they got vaccinated
+- Improve the User Interface such that only one text field appears per screen. Currently, though it does the work it looks very clunky.
 - Allow person to upload vaccine card after multiple doses, if the vaccine has more than 1 dose
 - Display an analytics dashboard stemming from all users data so visualisation and tracking of progress becomes easy
