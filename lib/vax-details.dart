@@ -1,12 +1,35 @@
+import 'package:covapp/thankyou.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:country_picker/country_picker.dart';
 import 'camera_image.dart';
+import 'dart:core';
 
 final Color teal = Colors.teal;
 final Color blue = Colors.lightBlueAccent;
 
-class VaccineInfo extends StatelessWidget {
+class VaccineInfo extends StatefulWidget {
+  @override
+  _VaccineInfoState createState() => _VaccineInfoState();
+}
+
+class _VaccineInfoState extends State<VaccineInfo> {
+  DateTime currentDate = DateTime.now();
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: currentDate,
+        firstDate: DateTime(2015),
+        lastDate: DateTime(2050));
+    if (pickedDate != null && pickedDate != currentDate)
+      setState(() {
+        currentDate = pickedDate;
+        dateController.text="${currentDate.toLocal()}".split(' ')[0];
+      });
+  }
+
+
+
   final TextEditingController placeController = TextEditingController();
   final TextEditingController pharmacyController = TextEditingController();
   final TextEditingController vaccineController = TextEditingController();
@@ -62,7 +85,7 @@ class VaccineInfo extends StatelessWidget {
 
                       Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         child: Row(
                           children: [
                             Flexible(
@@ -115,7 +138,7 @@ class VaccineInfo extends StatelessWidget {
                       ),
                       Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         child: TextFormField(
                           controller: pharmacyController,
                           decoration: InputDecoration(
@@ -126,7 +149,7 @@ class VaccineInfo extends StatelessWidget {
                       ),
                       Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         child: TextFormField(
                           controller: vaccineController,
                           decoration: InputDecoration(
@@ -137,13 +160,24 @@ class VaccineInfo extends StatelessWidget {
                       ),
                       Padding(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                        child: TextFormField(
-                          controller: dateController,
-                          decoration: InputDecoration(
-                            labelText: "Date",
-                            border: OutlineInputBorder(),
-                          ),
+                        EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        child: Row(
+                          children: [
+                            Flexible(
+                              child: TextFormField(
+                                controller: dateController,
+                                decoration: InputDecoration(
+                                  labelText: "Date",
+                                  border: OutlineInputBorder(),
+                                ),
+                              ),
+                            ),
+                            SizedBox(width:10),
+                            ElevatedButton(
+                              onPressed: () => _selectDate(context),
+                              child: Text('Select'),
+                            ),
+                          ],
                         ),
                       ),
                       Padding(
@@ -158,6 +192,10 @@ class VaccineInfo extends StatelessWidget {
                               "image": imageURL,
                             };
                             FirebaseFirestore.instance.collection("test2").add(data2);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ThankYouPage()),
+                            );
                           },
                           style: ElevatedButton.styleFrom(
                             primary: Colors.teal,
@@ -186,3 +224,4 @@ class VaccineInfo extends StatelessWidget {
     );
   }
 }
+

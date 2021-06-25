@@ -1,7 +1,7 @@
 // @dart=2.9
 
 import 'package:covapp/camera_image.dart';
-import 'package:covapp/signin.dart';
+import 'package:covapp/welcome.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +44,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class AuthenticationWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -52,6 +51,6 @@ class AuthenticationWrapper extends StatelessWidget {
     if(firebaseUser!=null){
       return UploadingImageToFirebaseStorage();
     }
-    return SignInPage();
+    return WelcomePage();
   }
 }
